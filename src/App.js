@@ -4,6 +4,7 @@
 // import ImageComponent from "./components/images/image";
 // import Profile from "./components/jsx/jsx";
 import './App.css'
+import ListApi from './components/class-based components/axios/list';
 import Circle from './components/class-based components/circle/circle';
 import Products from './components/class-based components/filter/countinc';
 import DomManipulation from './components/class-based components/lifecycle/dom';
@@ -51,7 +52,8 @@ function App(){
       {/* <UpdatingPhase/> */}
       {/* <Unmounting/> */}
       {/* <Circle/> */}
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
+      <ListApi/>
     </div>
   )
 }

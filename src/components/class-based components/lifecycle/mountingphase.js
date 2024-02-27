@@ -33,7 +33,24 @@ class Mounting extends Component{
            <h1 style={{color:"red",textDecorationLine:"underline"}}>Product List</h1>
            {
             this.state.products.length>0 ?
-            this.state.products.map(eachObject=><h2 key={eachObject.id}>--{eachObject.title}</h2>)
+            <table>
+            <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>price</th>
+            <th>image</th>
+            </tr>
+            {this.state.products.map((eachitem)=>{
+                return(
+                    <tr>
+                    <td>{eachitem.id}</td>
+                    <td>{eachitem.title}</td>
+                    <td>{eachitem.price}</td>
+                    <td><img src={eachitem.image} height={100} width={100}></img></td>
+                    </tr>
+                )
+            })}
+         </table>
             :
             <div className="spin"><Spinners/></div>
            }
