@@ -12,6 +12,10 @@ import Mounting from './components/class-based components/lifecycle/mountingphas
 import UpdatingPhase from './components/class-based components/lifecycle/stateupdation';
 import Unmounting from './components/class-based components/lifecycle/unmounting';
 import ProductsApi from './components/class-based components/products';
+import UseStateExample from './components/functional-componenets/hooks/useStateEx1';
+import UseStateExample2 from './components/functional-componenets/hooks/useStateEx2';
+import UseStateExample3 from './components/functional-componenets/hooks/useStateExample3';
+import UseStateExample4 from './components/functional-componenets/hooks/useStateExample4';
 // import ProductsApi from './components/functional-componenets/axios/products';
 // import FancyText from "./components/functional-componenets/text.js/text";
 // // import Content from "./components/functional-componenets/bootstrap/content";
@@ -53,7 +57,9 @@ function App(){
       {/* <Unmounting/> */}
       {/* <Circle/> */}
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
-      <ListApi/>
+      {/* <ListApi/> */}
+      {/* <UseStateExample2/> */}
+      <UseStateExample4/>
     </div>
   )
 }
