@@ -12,6 +12,14 @@ import Mounting from './components/class-based components/lifecycle/mountingphas
 import UpdatingPhase from './components/class-based components/lifecycle/stateupdation';
 import Unmounting from './components/class-based components/lifecycle/unmounting';
 import ProductsApi from './components/class-based components/products';
+import Caroussel from './components/functional-componenets/bootstrap/caroussel';
+import Controlled from './components/functional-componenets/forms/controlled';
+import Uncontrolled from './components/functional-componenets/forms/uncontrolled';
+import UseEffectExample from './components/functional-componenets/hooks/useEffect/useEffectEx1';
+import UseEffectEx2 from './components/functional-componenets/hooks/useEffect/useEffectEx2';
+import UseEffectExample3 from './components/functional-componenets/hooks/useEffect/useEffectEx3';
+import UseEffectEx4 from './components/functional-componenets/hooks/useEffect/useEffectEx4';
+import Countwithdata from './components/functional-componenets/hooks/useEffect/useEffecttask';
 import UseStateExample from './components/functional-componenets/hooks/useStateEx1';
 import UseStateExample2 from './components/functional-componenets/hooks/useStateEx2';
 import UseStateExample3 from './components/functional-componenets/hooks/useStateExample3';
@@ -59,8 +67,15 @@ function App(){
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
       {/* <ListApi/> */}
       {/* <UseStateExample2/> */}
-      <UseStateExample4/>
-    </div>
+      {/* <UseStateExample4/> */}
+      {/* <Uncontrolled/> */}
+      {/* <Controlled/> */}
+      {/* <Caroussel/> */}
+      {/* <UseEffectEx2/> */}
+      {/* <UseEffectExample3/> */}
+      {/* <UseEffectEx4/> */}
+      <Countwithdata/>
+            </div>
   )
 }
 export default App;
