@@ -1,8 +1,8 @@
 import React,{ Component } from "react";
 
 class Products extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             products:[
                 {
@@ -14,7 +14,7 @@ class Products extends Component{
                     "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
                     "rating": {
                         "rate": 3.9,
-                        "count": 120
+                        "count": 1
                     }
                 },
                 {
@@ -26,7 +26,7 @@ class Products extends Component{
                     "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
                     "rating": {
                         "rate": 4.1,
-                        "count": 259
+                        "count": 1
                     }
                 },
                 {
@@ -38,7 +38,7 @@ class Products extends Component{
                     "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
                     "rating": {
                         "rate": 4.7,
-                        "count": 500
+                        "count": 1
                     }
                 },
                 {
@@ -50,7 +50,7 @@ class Products extends Component{
                     "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
                     "rating": {
                         "rate": 2.1,
-                        "count": 430
+                        "count": 1
                     }
                 }]
         }
@@ -61,12 +61,12 @@ class Products extends Component{
     }
     increment=(data)=>{
         let result=this.state.products.map((eachObject)=>{
-            if(eachObject.id===data.id){
+            if(eachObject.id===data.id && (eachObject.rating.count>=0 || eachObject.rating.count<=0)){
                 let newObject={...eachObject,
                     rating:{
                     ...eachObject.rating,
                     count:eachObject.rating.count+1
-                },price:eachObject.price*(eachObject.rating.count+1)
+                }
                 
             }
                 return newObject
@@ -80,23 +80,61 @@ class Products extends Component{
         })
     }
     
-    decrement=(data)=>{
-        let result=this.state.products.map((eachObject)=>{
-            if(eachObject.id===data.id){
-                let newObject={...eachObject,rating:{
-                    ...eachObject.rating,count:eachObject.rating.count-1
-                },price:eachObject.price*(eachObject.rating.count)
+    // decrement=(data)=>{
+    //     let result=this.state.products.map((eachObject)=>{
+    //         if(eachObject.id===data.id){
+    //             let newObject={...eachObject,
+    //                 rating:{
+    //                 ...eachObject.rating,
+    //                 count:eachObject.rating.count-1
+    //             }
+    //         }
+    //             return newObject
+    //         }
+    //         else if(eachObject.rating.count===0 && eachObject.id===data.id){
+    //             let newobj=this.state.products.filter((eachObject)=>{
+    //                 return eachObject.id !== data.id
+    //              }) 
+    //              return newobj
+    //         }
+    //         else{
+    //             return eachObject
+    //         }
+    //     })
+    //     this.setState({
+    //         products:result
+    //     }) 
+    // }
+    decrement = (data) => {
+        let result = this.state.products.map((eachObject) => {
+            if (eachObject.id === data.id) {
+                let newObject = {
+                    ...eachObject,
+                    rating: {
+                        ...eachObject.rating,
+                        count: eachObject.rating.count - 1
+                    }
+                };
+    
+                if (newObject.rating.count === 0) {
+                    // Filter out the product with count 0
+                    return null;
+                }
+    
+                return newObject;
+            } else {
+                return eachObject;
             }
-                return newObject
-            }
-            else{
-                return eachObject
-            }
-        })
+        });
+    
+        // Filter out null values from the result
+        result = result.filter((item) => item !== null);
+    
         this.setState({
-            products:result
-        }) 
-    }
+            products: result
+        });
+    };
+    
     delete=(data)=>{
         let result=this.state.products.filter((eachObject)=>{
            return eachObject.id !== data.id
@@ -146,6 +184,7 @@ class ProductListing extends Component{
                 <h4>price={this.props.data.price}</h4>
                 <button onClick={()=>{this.props.increment(this.props.data)}}>+</button>
                 <h4>count---------{this.props.data.rating.count}</h4>
+                <h4>Total price: {this.props.data.rating.count*this.props.data.price}</h4>
                 <button onClick={()=>{this.props.decrement(this.props.data)}}>-</button>
                 <button onClick={()=>{this.props.delete(this.props.data)}}>delete</button>
             </div>
