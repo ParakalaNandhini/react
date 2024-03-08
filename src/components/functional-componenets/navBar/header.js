@@ -10,7 +10,7 @@ const Header=()=>{
     <div className="container-fluid">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <Link style={linkstyle} >Home</Link>
+          <Link style={linkstyle} to={"/home"}>Home</Link>
         </li>
         <li className="nav-item">
         <Link  style={linkstyle} to={"/profile"}>Profile</Link>
